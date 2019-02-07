@@ -8,6 +8,7 @@ class Product(db.Model):
     category = db.relationship(
         'Category', backref=db.backref('products', lazy='dynamic')
     )
+    company = db.Column(db.String(100))
 
     def __init__(self, name, price, category):
         self.name = name
