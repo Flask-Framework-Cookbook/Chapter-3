@@ -70,10 +70,11 @@ def categories():
         res[category.id] = {
             'name': category.name
         }
+        res[category.id]['products'] = []
         for product in category.products:
-            res[category.id]['products'] = {
+            res[category.id]['products'].append({
                 'id': product.id,
                 'name': product.name,
                 'price': product.price
-            }
+            })
     return jsonify(res)
